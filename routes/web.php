@@ -16,7 +16,7 @@ use App\Post;
 use App\Product;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::get('/test', function () {
@@ -48,5 +48,3 @@ Route::get('/test', function () {
     return $data;
 });
 Auth::routes();
-
-Route::get('/home', 'HomeController@index');

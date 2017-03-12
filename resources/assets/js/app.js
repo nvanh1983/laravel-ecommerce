@@ -1,3 +1,4 @@
+import router from './routes.js';
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -13,8 +14,15 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example', require('./components/Example.vue'));
+// Vue.component('example', require('./components/Example.vue'));
+
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    data: {
+      test: 'Vue loaded'  
+    },
+    router
 });
+
+console.log('Loaed');
