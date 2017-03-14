@@ -47,4 +47,5 @@ Route::get('/test', function () {
     
     return $data;
 });
+
 Auth::routes();

@@ -16,3 +16,41 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::get('users', function() {
+    return App\User::paginate(10);
+});
+
+Route::get('pages', function() {
+    return App\Page::with([
+        'author' => function ($q) {
+            $q->select('id', 'name');
+        },
+        'types' => function ($q) {
+            $q->select('id', 'name', 'slug');
+        }
+    ])->paginate(10);
+});
+
+Route::get('posts', function () {
+    return App\Post::with([
+        'publisher' => function ($q) {
+            $q->select('id', 'name');
+        },
+        'types' => function ($q) {
+            $q->select('id', 'name', 'slug');
+        }
+    ])->paginate(10);
+});
+
+Route::get('products', function() {
+    return App\Product::with([
+        'author' => function ($q) {
+            $q->select('id', 'name');
+        },
+        'types' => function ($q) {
+            $q->select('id', 'name', 'slug');
+        }
+    ])->paginate(10);
+});

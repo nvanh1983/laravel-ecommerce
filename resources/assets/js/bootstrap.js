@@ -19,9 +19,33 @@ require('bootstrap-sass');
 
 window.Vue = require('vue');
 
+// window.VueRouter = require('vue-router');
+// window.VueResource = require('vue-resource');
+
 import VueRouter from 'vue-router';
+import VueResource from 'vue-resource';
+
+import {ServerTable, ClientTable, Event} from 'vue-tables-2';
 
 Vue.use(VueRouter);
+Vue.use(VueResource);
+Vue.use(ClientTable);
+
+Vue.use(ServerTable, {
+    compileTemplates: true,
+    highlightMatches: true,
+    pagination: {
+    dropdown:true,
+        chunk:5
+    },
+    filterByColumn: true,
+    texts: {
+        filter: "Search:"
+    },
+    datepickerOptions: {
+        showDropdowns: true
+    }
+});
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
