@@ -19,6 +19,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/admin', 'AdminController@index');
+
 Route::get('/test', function () {
     
     Page::withTrashed()->restore();
@@ -49,5 +51,3 @@ Route::get('/test', function () {
 });
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index');

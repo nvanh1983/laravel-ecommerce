@@ -22,3 +22,28 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Type::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->name,
+        'note' => $faker->sentence()
+    ];
+});
+
+$factory->define(App\Size::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->name,
+        'note' => $faker->sentence()
+    ];
+});
+
+$factory->define(App\Product::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->name,
+        'price' => $faker->randomFloat(2, 1, 100),
+        'photo' => $faker->imageUrl(640, 480),
+        'published_by' => 1,
+    ];
+});
+
+

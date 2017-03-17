@@ -27,5 +27,13 @@ Route::group(['middleware' => 'auth:api'], function() {
         return App\Page::paginate(1000);
     });
     
+    Route::get('posts', function() {
+        return App\Post::paginate(1000);
+    });
+    
+    Route::get('products', function() {
+        return App\Product::paginate(1000);
+    });
+    
 });
 
