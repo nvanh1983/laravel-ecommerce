@@ -16,3 +16,16 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::group(['middleware' => 'auth:api'], function() {
+
+    Route::get('users', function() {
+        return App\User::paginate(1000);
+    });
+    
+    Route::get('pages', function() {
+        return App\Page::paginate(1000);
+    });
+    
+});
+
