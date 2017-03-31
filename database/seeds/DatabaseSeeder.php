@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UsersTableSeeder::class);
         
+        factory(\App\User::class, 9)->create();
+        
         $user = User::create([
             'name' => 'Ravuth Yo',
             'email' => 'ravuthz@gmail.com',
@@ -146,6 +148,10 @@ class DatabaseSeeder extends Seeder
         $product3->sizes()->attach($size3->id);
         $product3->sizes()->attach($size4->id);
         $product3->sizes()->attach($size5->id);
+        
+        factory(App\Product::class, 50)->create()->each(function($p) {
+            $p->types()->save(factory(App\Type::class)->make());
+        });
         
     }
 }
